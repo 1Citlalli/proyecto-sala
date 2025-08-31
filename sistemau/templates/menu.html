@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservaciones - UJAT</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { margin:0; font-family: Arial, sans-serif; background-color: #f8f9fa; }
+  .topbar {
+    background-color: #005f86; 
+    color: white; 
+    padding: 15px 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+  }
+  .logo-text { font-weight: bold; font-size: 1.2rem; }
+  .topbar-icons img { width: 35px; height: 35px; border-radius: 50%; margin-left: 10px; cursor:pointer; }
+  .sidebar {
+    background-color: #e9ecef; 
+    height: calc(100vh - 60px); 
+    padding-top: 10px;
+  }
+  .sidebar a {
+    display: block; 
+    padding: 15px; 
+    color: #000; 
+    text-decoration: none;
+  }
+  .sidebar a:hover, .sidebar a.active { background-color: #ced4da; }
+  #contenido { width:100%; height: calc(100vh - 60px); border:none; }
+</style>
+</head>
+<body>
+
+<!-- Topbar azul -->
+<div class="topbar">
+  <div class="logo-text">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Logo_de_la_UJAT.svg" style="height:80px; margin-right:10px;" alt="Logo">
+    Universidad Juárez Autónoma de Tabasco
+  </div>
+  <div class="topbar-icons">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" title="Configuración">
+    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" title="Usuario">
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar p-0">
+      <a href="#" onclick="cargar('disponibilidad.html')">Consultar Disponibilidad</a>
+      <a href="#" onclick="cargar('apartar.html')">Apartar Sala Audiovisual</a>
+      <a href="#" onclick="cargar('reportes.html')">Consultar Reportes</a>
+      <a href="#" onclick="cargar('usuarios.html')">Dar de Alta a Nuevo Usuario</a>
+    
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="col-md-10 p-0">
+      <iframe id="contenido" src="disponibilidad.html"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+function cargar(pagina) {
+  document.getElementById('contenido').src = pagina;
+}
+</script>
+</body>
+</html>

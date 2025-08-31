@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Consultar Disponibilidad</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<style>
+  body { padding: 20px; background-color: #f8f9fa; }
+</style>
+</head>
+<body>
+<div id="app">
+  <h3>Consultar Disponibilidad</h3>
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Nombre del maestro</th>
+        <th>Fecha de Apartado</th>
+        <th>Sala Apartada</th>
+        <th>Horario de Inicio</th>
+        <th>Horario de Finalización</th>
+        <th>División</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(reserva,index) in reservas" :key="index">
+        <td>{{ reserva.maestro }}</td>
+        <td>{{ reserva.fecha }}</td>
+        <td>{{ reserva.sala }}</td>
+        <td>{{ reserva.inicio }}</td>
+        <td>{{ reserva.fin }}</td>
+        <td>{{ reserva.division }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+const { createApp } = Vue;
+createApp({
+  data() {
+    return {
+      reservas: [
+        { maestro: "Juan Hernandez", fecha: "2025-07-01", sala: "X1", inicio: "12:00", fin: "14:00", division: "Dacity" },
+        { maestro: "Pedro Osorio", fecha: "2025-07-02", sala: "Y1", inicio: "10:00", fin: "12:00", division: "Dacity" }
+      ]
+    }
+  }
+}).mount("#app");
+</script>
+</body>
+</html>
